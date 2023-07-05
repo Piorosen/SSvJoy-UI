@@ -6,5 +6,20 @@ namespace SSvJoyUI
         {
             InitializeComponent();
         }
+
+        private void LudderScroll_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
+        private void EngineLeftScroll_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
+        private void EngineRightScroll_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
     }
 }
