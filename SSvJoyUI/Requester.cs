@@ -87,7 +87,7 @@ namespace SSvJoyUI
                         var request = new HttpRequestMessage(HttpMethod.Post, $"http://{IP}:{Port}/serial");
                         var content = new StringContent(message, Encoding.UTF8, "application/json");
                         request.Content = content;
-                        client.SendAsync(request);
+                        client.Send(request);
                     }
                     Task.Delay(10).Wait();
                 }
