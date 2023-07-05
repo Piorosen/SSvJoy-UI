@@ -14,8 +14,6 @@ namespace SSvJoyUI
         public int Port { get; private set; } = 80;
         public bool IsConnect { get; private set;  } = false;
 
-        private readonly ConcurrentQueue<string> queue = new ConcurrentQueue<string>();
-
         // 100 -> 1023
         // 0 -> 0
         private int _ludder = 0;
@@ -28,10 +26,6 @@ namespace SSvJoyUI
             set
             {
                 _ludder = value * 1023 / 100;
-                if (IsConnect)
-                {
-                    queue.Enqueue($"{{\"type\":4,\"id\":0,\"value\":{_ludder}}}");
-                }
             }
         }
 
@@ -45,10 +39,6 @@ namespace SSvJoyUI
             set
             {
                 _engineL = value * 1023 / 100;
-                if (IsConnect)
-                {
-                    queue.Enqueue($"{{\"type\":6,\"id\":0,\"value\":{_engineL}}}");
-                }
             }
         }
 
@@ -62,10 +52,6 @@ namespace SSvJoyUI
             set
             {
                 _engineR = value * 1023 / 100;
-                if (IsConnect)
-                {
-                    queue.Enqueue($"{{\"type\":8,\"id\":0,\"value\":{_engineR}}}");
-                }
             }
         }
 
@@ -89,10 +75,16 @@ namespace SSvJoyUI
             {
                 while (IsConnect)
                 {
-                    while (queue.TryDequeue(out string message))
+                    string[] data = new string[3]
+                    {
+                        $"{{\"type\":4,\"id\":0,\"value\":{_ludder}}}",
+                        $"{{\"type\":6,\"id\":0,\"value\":{_engineL}}}",
+                        $"{{\"type\":8,\"id\":0,\"value\":{_engineR}}}"
+                    };
+                    foreach (var message in data)
                     {
                         var client = new HttpClient();
-                        var request = new HttpRequestMessage(HttpMethod.Post, "http://127.0.0.1:80/serial");
+                        var request = new HttpRequestMessage(HttpMethod.Post, $"http://{IP}:{Port}/serial");
                         var content = new StringContent(message, Encoding.UTF8, "application/json");
                         request.Content = content;
                         client.SendAsync(request);
