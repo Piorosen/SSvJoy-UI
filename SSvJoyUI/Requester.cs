@@ -87,13 +87,17 @@ namespace SSvJoyUI
         {
             await Task.Run(() =>
             {
-                while (IsConnect && queue.TryDequeue(out string message))
+                while (IsConnect)
                 {
-                    var client = new HttpClient();
-                    var request = new HttpRequestMessage(HttpMethod.Post, "http://127.0.0.1:80/serial");
-                    var content = new StringContent(message, Encoding.UTF8, "application/json");
-                    request.Content = content;
-                    client.SendAsync(request);
+                    while (queue.TryDequeue(out string message))
+                    {
+                        var client = new HttpClient();
+                        var request = new HttpRequestMessage(HttpMethod.Post, "http://127.0.0.1:80/serial");
+                        var content = new StringContent(message, Encoding.UTF8, "application/json");
+                        request.Content = content;
+                        client.SendAsync(request);
+                    }
+                    Task.Delay(10).Wait();
                 }
             });
         }
