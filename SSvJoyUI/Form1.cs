@@ -34,13 +34,16 @@ namespace SSvJoyUI
 
         private void ConnectionButton_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(this.ServerPortTextBox.Text, out int port) == false)
+            string ip = this.ServerIPTextBox.Text == "" ? ServerIPTextBox.Text : ServerIPTextBox.PlaceholderText;
+            string port = this.ServerPortTextBox.Text == "" ? ServerPortTextBox.Text : ServerPortTextBox.PlaceholderText;
+
+            if (int.TryParse(port, out int portint) == false)
             {
                 MessageBox.Show("Port is not a number");
                 return;
             }
 
-            requester.Connect(this.ServerIPTextBox.Text, port);
+            requester.Connect(ip, portint);
         }
     }
 }
