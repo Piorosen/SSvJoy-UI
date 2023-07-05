@@ -104,13 +104,13 @@ namespace SSvJoyUI
                     }
                     if (current_engineL != _engineL)
                     {
-                        Send(data[0]);
+                        Send(data[1]);
                         current_engineL = _engineL;
                         continue;
                     }
                     if (current_engineR != _engineR)
                     {
-                        Send(data[0]);
+                        Send(data[2]);
                         current_engineR = _engineR;
                         continue;
                     }
