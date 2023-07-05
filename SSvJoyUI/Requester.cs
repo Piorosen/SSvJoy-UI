@@ -28,7 +28,10 @@ namespace SSvJoyUI
             set
             {
                 _ludder = value * 1023 / 100;
-                queue.Enqueue($"{{\"type\":4,\"id\":0,\"value\":{_ludder}}}");
+                if (IsConnect)
+                {
+                    queue.Enqueue($"{{\"type\":4,\"id\":0,\"value\":{_ludder}}}");
+                }
             }
         }
 
@@ -42,7 +45,10 @@ namespace SSvJoyUI
             set
             {
                 _engineL = value * 1023 / 100;
-                queue.Enqueue($"{{\"type\":6,\"id\":0,\"value\":{_engineL}}}");
+                if (IsConnect)
+                {
+                    queue.Enqueue($"{{\"type\":6,\"id\":0,\"value\":{_engineL}}}");
+                }
             }
         }
 
@@ -56,7 +62,10 @@ namespace SSvJoyUI
             set
             {
                 _engineR = value * 1023 / 100;
-                queue.Enqueue($"{{\"type\":8,\"id\":0,\"value\":{_engineR}}}");
+                if (IsConnect)
+                {
+                    queue.Enqueue($"{{\"type\":8,\"id\":0,\"value\":{_engineR}}}");
+                }
             }
         }
 

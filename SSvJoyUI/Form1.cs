@@ -13,6 +13,7 @@ namespace SSvJoyUI
             if (e.NewValue != e.OldValue)
             {
                 requester.Ludder = e.NewValue;
+                LudderLabel.Text = $"Ludder : {requester.Ludder}";
             }
         }
 
@@ -21,6 +22,7 @@ namespace SSvJoyUI
             if (e.NewValue != e.OldValue)
             {
                 requester.EngineL = e.NewValue;
+                EngineLeftLabel.Text = $"Ludder : {requester.EngineL}";
             }
         }
 
@@ -29,6 +31,7 @@ namespace SSvJoyUI
             if (e.NewValue != e.OldValue)
             {
                 requester.EngineR = e.NewValue;
+                EngineRightLabel.Text = $"Ludder : {requester.EngineR}";
             }
         }
 
