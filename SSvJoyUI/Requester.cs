@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SSvJoyUI
 {
@@ -69,10 +70,23 @@ namespace SSvJoyUI
             IsConnect = false;
         }
 
+        private void Send(string message)
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, $"http://{IP}:{Port}/serial");
+            var content = new StringContent(message, Encoding.UTF8, "application/json");
+            request.Content = content;
+            client.Send(request);
+        }
+
         public async Task RunLoop()
         {
             await Task.Run(() =>
             {
+                int current_ludder = _ludder;
+                int current_engineL = _engineL;
+                int current_engineR = _engineR;
+
                 while (IsConnect)
                 {
                     string[] data = new string[3]
@@ -81,15 +95,27 @@ namespace SSvJoyUI
                         $"{{\"type\":6,\"id\":0,\"value\":{_engineL}}}",
                         $"{{\"type\":8,\"id\":0,\"value\":{_engineR}}}"
                     };
-                    foreach (var message in data)
+
+                    if (current_ludder != _ludder)
                     {
-                        var client = new HttpClient();
-                        var request = new HttpRequestMessage(HttpMethod.Post, $"http://{IP}:{Port}/serial");
-                        var content = new StringContent(message, Encoding.UTF8, "application/json");
-                        request.Content = content;
-                        client.Send(request);
+                        Send(data[0]);
+                        current_ludder = _ludder;
+                        continue;
                     }
-                    Task.Delay(10).Wait();
+                    if (current_engineL != _engineL)
+                    {
+                        Send(data[0]);
+                        current_engineL = _engineL;
+                        continue;
+                    }
+                    if (current_engineR != _engineR)
+                    {
+                        Send(data[0]);
+                        current_engineR = _engineR;
+                        continue;
+                    }
+
+                    Task.Delay(500).Wait();
                 }
             });
         }
