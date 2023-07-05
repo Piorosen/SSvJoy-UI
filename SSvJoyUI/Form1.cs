@@ -37,8 +37,8 @@ namespace SSvJoyUI
 
         private void ConnectionButton_Click(object sender, EventArgs e)
         {
-            string ip = this.ServerIPTextBox.Text == "" ? ServerIPTextBox.Text : ServerIPTextBox.PlaceholderText;
-            string port = this.ServerPortTextBox.Text == "" ? ServerPortTextBox.Text : ServerPortTextBox.PlaceholderText;
+            string ip = this.ServerIPTextBox.Text == "" ? ServerIPTextBox.PlaceholderText : ServerIPTextBox.Text;
+            string port = this.ServerPortTextBox.Text == "" ? ServerPortTextBox.PlaceholderText : ServerPortTextBox.Text;
 
             if (int.TryParse(port, out int portint) == false)
             {
