@@ -43,11 +43,11 @@
             label6 = new Label();
             ServerPortTextBox = new TextBox();
             groupBox1 = new GroupBox();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            ConnectionButton = new Button();
+            EngineRightLabel = new Label();
             LudderLabel = new Label();
             EngineLeftLabel = new Label();
-            EngineRightLabel = new Label();
-            ConnectionButton = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -59,6 +59,7 @@
             // 
             LudderScroll.Dock = DockStyle.Fill;
             LudderScroll.Location = new Point(0, 0);
+            LudderScroll.Maximum = 109;
             LudderScroll.Name = "LudderScroll";
             LudderScroll.Size = new Size(295, 72);
             LudderScroll.TabIndex = 0;
@@ -69,6 +70,7 @@
             // 
             EngineRightScroll.Dock = DockStyle.Fill;
             EngineRightScroll.Location = new Point(0, 0);
+            EngineRightScroll.Maximum = 109;
             EngineRightScroll.Name = "EngineRightScroll";
             EngineRightScroll.Size = new Size(72, 273);
             EngineRightScroll.TabIndex = 1;
@@ -79,6 +81,7 @@
             // 
             EngineLeftScroll.Dock = DockStyle.Fill;
             EngineLeftScroll.Location = new Point(0, 0);
+            EngineLeftScroll.Maximum = 109;
             EngineLeftScroll.Name = "EngineLeftScroll";
             EngineLeftScroll.Size = new Size(72, 273);
             EngineLeftScroll.TabIndex = 2;
@@ -218,6 +221,46 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "설정";
             // 
+            // ConnectionButton
+            // 
+            ConnectionButton.Location = new Point(7, 190);
+            ConnectionButton.Name = "ConnectionButton";
+            ConnectionButton.Size = new Size(282, 37);
+            ConnectionButton.TabIndex = 21;
+            ConnectionButton.Text = "접속";
+            ConnectionButton.UseVisualStyleBackColor = true;
+            ConnectionButton.Click += ConnectionButton_Click;
+            // 
+            // EngineRightLabel
+            // 
+            EngineRightLabel.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            EngineRightLabel.Location = new Point(9, 159);
+            EngineRightLabel.Name = "EngineRightLabel";
+            EngineRightLabel.Size = new Size(280, 23);
+            EngineRightLabel.TabIndex = 19;
+            EngineRightLabel.Text = "Engine R : ";
+            EngineRightLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // LudderLabel
+            // 
+            LudderLabel.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            LudderLabel.Location = new Point(9, 97);
+            LudderLabel.Name = "LudderLabel";
+            LudderLabel.Size = new Size(280, 23);
+            LudderLabel.TabIndex = 16;
+            LudderLabel.Text = "Ludder : ";
+            LudderLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // EngineLeftLabel
+            // 
+            EngineLeftLabel.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            EngineLeftLabel.Location = new Point(9, 128);
+            EngineLeftLabel.Name = "EngineLeftLabel";
+            EngineLeftLabel.Size = new Size(280, 23);
+            EngineLeftLabel.TabIndex = 17;
+            EngineLeftLabel.Text = "Engine L :";
+            EngineLeftLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 3;
@@ -245,46 +288,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(463, 361);
             tableLayoutPanel1.TabIndex = 16;
-            // 
-            // LudderLabel
-            // 
-            LudderLabel.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            LudderLabel.Location = new Point(9, 97);
-            LudderLabel.Name = "LudderLabel";
-            LudderLabel.Size = new Size(280, 23);
-            LudderLabel.TabIndex = 16;
-            LudderLabel.Text = "Ludder : ";
-            LudderLabel.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // EngineLeftLabel
-            // 
-            EngineLeftLabel.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            EngineLeftLabel.Location = new Point(9, 128);
-            EngineLeftLabel.Name = "EngineLeftLabel";
-            EngineLeftLabel.Size = new Size(280, 23);
-            EngineLeftLabel.TabIndex = 17;
-            EngineLeftLabel.Text = "Engine L :";
-            EngineLeftLabel.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // EngineRightLabel
-            // 
-            EngineRightLabel.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            EngineRightLabel.Location = new Point(9, 159);
-            EngineRightLabel.Name = "EngineRightLabel";
-            EngineRightLabel.Size = new Size(280, 23);
-            EngineRightLabel.TabIndex = 19;
-            EngineRightLabel.Text = "Engine R : ";
-            EngineRightLabel.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // ConnectionButton
-            // 
-            ConnectionButton.Location = new Point(7, 190);
-            ConnectionButton.Name = "ConnectionButton";
-            ConnectionButton.Size = new Size(282, 37);
-            ConnectionButton.TabIndex = 21;
-            ConnectionButton.Text = "접속";
-            ConnectionButton.UseVisualStyleBackColor = true;
-            ConnectionButton.Click += ConnectionButton_Click;
             // 
             // Form1
             // 
