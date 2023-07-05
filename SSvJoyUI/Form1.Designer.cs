@@ -34,20 +34,20 @@
             panel1 = new Panel();
             panel2 = new Panel();
             panel3 = new Panel();
-            textBox1 = new TextBox();
+            ServerIPTextBox = new TextBox();
             label1 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label2 = new Label();
             label6 = new Label();
-            textBox2 = new TextBox();
+            ServerPortTextBox = new TextBox();
             groupBox1 = new GroupBox();
             tableLayoutPanel1 = new TableLayoutPanel();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            button1 = new Button();
+            LudderLabel = new Label();
+            EngineLeftLabel = new Label();
+            EngineRightLabel = new Label();
+            ConnectionButton = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -117,13 +117,13 @@
             panel3.Size = new Size(297, 74);
             panel3.TabIndex = 5;
             // 
-            // textBox1
+            // ServerIPTextBox
             // 
-            textBox1.Location = new Point(112, 23);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "127.0.0.1";
-            textBox1.Size = new Size(161, 29);
-            textBox1.TabIndex = 6;
+            ServerIPTextBox.Location = new Point(112, 23);
+            ServerIPTextBox.Name = "ServerIPTextBox";
+            ServerIPTextBox.PlaceholderText = "127.0.0.1";
+            ServerIPTextBox.Size = new Size(161, 29);
+            ServerIPTextBox.TabIndex = 6;
             // 
             // label1
             // 
@@ -190,23 +190,23 @@
             label6.Text = "포트 번호";
             label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // ServerPortTextBox
             // 
-            textBox2.Location = new Point(112, 60);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "80";
-            textBox2.Size = new Size(161, 29);
-            textBox2.TabIndex = 14;
+            ServerPortTextBox.Location = new Point(112, 60);
+            ServerPortTextBox.Name = "ServerPortTextBox";
+            ServerPortTextBox.PlaceholderText = "80";
+            ServerPortTextBox.Size = new Size(161, 29);
+            ServerPortTextBox.TabIndex = 14;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(ConnectionButton);
+            groupBox1.Controls.Add(EngineRightLabel);
+            groupBox1.Controls.Add(LudderLabel);
+            groupBox1.Controls.Add(EngineLeftLabel);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(ServerPortTextBox);
+            groupBox1.Controls.Add(ServerIPTextBox);
             groupBox1.Controls.Add(label6);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -246,44 +246,45 @@
             tableLayoutPanel1.Size = new Size(463, 361);
             tableLayoutPanel1.TabIndex = 16;
             // 
-            // label7
+            // LudderLabel
             // 
-            label7.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(9, 97);
-            label7.Name = "label7";
-            label7.Size = new Size(280, 23);
-            label7.TabIndex = 16;
-            label7.Text = "Ludder : ";
-            label7.TextAlign = ContentAlignment.MiddleLeft;
+            LudderLabel.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            LudderLabel.Location = new Point(9, 97);
+            LudderLabel.Name = "LudderLabel";
+            LudderLabel.Size = new Size(280, 23);
+            LudderLabel.TabIndex = 16;
+            LudderLabel.Text = "Ludder : ";
+            LudderLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label8
+            // EngineLeftLabel
             // 
-            label8.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(9, 128);
-            label8.Name = "label8";
-            label8.Size = new Size(280, 23);
-            label8.TabIndex = 17;
-            label8.Text = "Engine R :";
-            label8.TextAlign = ContentAlignment.MiddleLeft;
+            EngineLeftLabel.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            EngineLeftLabel.Location = new Point(9, 128);
+            EngineLeftLabel.Name = "EngineLeftLabel";
+            EngineLeftLabel.Size = new Size(280, 23);
+            EngineLeftLabel.TabIndex = 17;
+            EngineLeftLabel.Text = "Engine L :";
+            EngineLeftLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label9
+            // EngineRightLabel
             // 
-            label9.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(9, 159);
-            label9.Name = "label9";
-            label9.Size = new Size(280, 23);
-            label9.TabIndex = 19;
-            label9.Text = "Engine R : ";
-            label9.TextAlign = ContentAlignment.MiddleLeft;
+            EngineRightLabel.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            EngineRightLabel.Location = new Point(9, 159);
+            EngineRightLabel.Name = "EngineRightLabel";
+            EngineRightLabel.Size = new Size(280, 23);
+            EngineRightLabel.TabIndex = 19;
+            EngineRightLabel.Text = "Engine R : ";
+            EngineRightLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // button1
+            // ConnectionButton
             // 
-            button1.Location = new Point(7, 190);
-            button1.Name = "button1";
-            button1.Size = new Size(282, 37);
-            button1.TabIndex = 21;
-            button1.Text = "접속";
-            button1.UseVisualStyleBackColor = true;
+            ConnectionButton.Location = new Point(7, 190);
+            ConnectionButton.Name = "ConnectionButton";
+            ConnectionButton.Size = new Size(282, 37);
+            ConnectionButton.TabIndex = 21;
+            ConnectionButton.Text = "접속";
+            ConnectionButton.UseVisualStyleBackColor = true;
+            ConnectionButton.Click += ConnectionButton_Click;
             // 
             // Form1
             // 
@@ -310,19 +311,19 @@
         private Panel panel1;
         private Panel panel2;
         private Panel panel3;
-        private TextBox textBox1;
+        private TextBox ServerIPTextBox;
         private Label label1;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label2;
         private Label label6;
-        private TextBox textBox2;
+        private TextBox ServerPortTextBox;
         private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel1;
-        private Label label9;
-        private Label label7;
-        private Label label8;
-        private Button button1;
+        private Label EngineRightLabel;
+        private Label LudderLabel;
+        private Label EngineLeftLabel;
+        private Button ConnectionButton;
     }
 }

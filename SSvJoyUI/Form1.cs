@@ -21,5 +21,10 @@ namespace SSvJoyUI
         {
 
         }
+
+        private void ConnectionButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
