@@ -14,7 +14,7 @@ namespace SSvJoyUI
         public int Port { get; private set; } = 80;
         public bool IsConnect { get; private set;  } = false;
 
-        private ConcurrentQueue<string> queue = new ConcurrentQueue<string>();
+        private readonly ConcurrentQueue<string> queue = new ConcurrentQueue<string>();
 
         // 100 -> 1023
         // 0 -> 0
