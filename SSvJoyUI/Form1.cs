@@ -22,7 +22,7 @@ namespace SSvJoyUI
             if (e.NewValue != e.OldValue)
             {
                 requester.EngineL = e.NewValue;
-                EngineLeftLabel.Text = $"Ludder : {requester.EngineL}";
+                EngineLeftLabel.Text = $"Engine L : {requester.EngineL}";
             }
         }
 
@@ -31,7 +31,7 @@ namespace SSvJoyUI
             if (e.NewValue != e.OldValue)
             {
                 requester.EngineR = e.NewValue;
-                EngineRightLabel.Text = $"Ludder : {requester.EngineR}";
+                EngineRightLabel.Text = $"Engine R : {requester.EngineR}";
             }
         }
 
